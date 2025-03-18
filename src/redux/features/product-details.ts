@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Product } from "@/types/product";
+import { createSlice } from '@reduxjs/toolkit';
+import { Product } from '@/types/product';
 
 type InitialState = {
   value: Product;
@@ -7,19 +7,17 @@ type InitialState = {
 
 const initialState = {
   value: {
-    title: "",
-    reviews: 0,
-    price: 0,
-    discountedPrice: 0,
-    img: "",
-    images: [],
+    name: '',
+    price: '',
+    sale_price: '',
+    images: [{ id: 0, src: '', alt: '' }], // Updated to match expected type
     id: 0,
-    imgs: { thumbnails: [], previews: [] },
+    description: '',
   },
 } as InitialState;
 
 export const productDetails = createSlice({
-  name: "productDetails",
+  name: 'productDetails',
   initialState,
   reducers: {
     updateproductDetails: (_, action) => {

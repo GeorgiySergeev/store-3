@@ -1,11 +1,20 @@
 export type Product = {
-  title: string;
-  reviews: number;
-  price: number;
-  discountedPrice: number;
   id: number;
-  imgs?: {
-    thumbnails: string[];
-    previews: string[];
-  };
+  name: string;
+  price: string;
+  sale_price?: string;
+  categories?: [];
+  slug?: string;
+  defaultImage?: string;
+  describtion?: string;
+  status?: string;
+  onAddToCart?: () => void;
+  onAddToWishlist?: () => void;
+  images?: [
+    {
+      id: number;
+      src: string;
+      alt: string;
+    },
+  ];
 };
