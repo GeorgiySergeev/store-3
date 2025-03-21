@@ -1,43 +1,43 @@
 const data = [
   {
-    title: "Televisions",
+    title: 'Велосипеди гірські',
     id: 1,
-    img: "/images/categories/categories-01.png",
+    img: '/images/categories/mountain-bicycle-1.png',
   },
   {
-    title: "Laptop & PC",
+    title: 'Запчастини',
     id: 2,
-    img: "/images/categories/categories-02.png",
+    img: '/images/categories/bicycle-parts.png',
   },
   {
-    title: "Mobile & Tablets",
+    title: 'Шоломи',
     id: 3,
-    img: "/images/categories/categories-03.png",
+    img: '/images/categories/halmet.png',
   },
   {
-    title: "Games & Videos",
+    title: 'Міські велосипеди',
     id: 4,
-    img: "/images/categories/categories-04.png",
+    img: '/images/categories/city-bicycle.png',
   },
   {
-    title: "Home Appliances",
+    title: 'Вело-одяг, екипіровка',
     id: 5,
-    img: "/images/categories/categories-05.png",
+    img: '/images/categories/bicycle-equipment--clothing.png',
   },
   {
-    title: "Health & Sports",
+    title: 'Гравійні велосипеди',
     id: 6,
-    img: "/images/categories/categories-06.png",
+    img: '/images/categories/gravel-bicycle.png',
   },
   {
-    title: "Watches",
+    title: 'Дитячі велосипеди',
     id: 7,
-    img: "/images/categories/categories-07.png",
+    img: '/images/categories/kid-bicycle.png',
   },
   {
-    title: "Televisions",
+    title: 'Електро велосипеди',
     id: 8,
-    img: "/images/categories/categories-04.png",
+    img: '/images/categories/electro-bicycle.png',
   },
 ];
 

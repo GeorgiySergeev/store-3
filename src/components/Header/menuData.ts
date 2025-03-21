@@ -6,6 +6,32 @@ export const menuData: Menu[] = [
     title: 'Велосипеди',
     newTab: false,
     path: '/',
+    submenu: [
+      {
+        id: 11,
+        title: 'Гірські велосипеди',
+        newTab: false,
+        path: '/shop',
+      },
+      {
+        id: 12,
+        title: 'Електро велосипеди',
+        newTab: false,
+        path: '/shop',
+      },
+      {
+        id: 12,
+        title: 'Дитячі  велосипеди',
+        newTab: false,
+        path: '/shop',
+      },
+      {
+        id: 12,
+        title: 'Міські велосипеди',
+        newTab: false,
+        path: '/shop',
+      },
+    ],
   },
   {
     id: 2,
@@ -18,6 +44,20 @@ export const menuData: Menu[] = [
     title: 'Запчастини',
     newTab: false,
     path: '/contact',
+    submenu: [
+      {
+        id: 31,
+        title: 'Шатуни',
+        newTab: false,
+        path: '/shop',
+      },
+      {
+        id: 31,
+        title: 'Покришки',
+        newTab: false,
+        path: '/shop',
+      },
+    ],
   },
   {
     id: 6,
