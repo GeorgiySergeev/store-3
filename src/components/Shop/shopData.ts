@@ -6,7 +6,7 @@ import getaAllProducts from '../../api/getAllProducts';
 const shopData: Product[] = [
   {
     name: 'Garmin Edge 530 GPS Cycling Computer',
-    reviews: 15,
+
     price: '299.0',
     sale_price: 233,
     id: 1,
@@ -20,7 +20,7 @@ const shopData: Product[] = [
   },
   {
     name: 'Garmin Edge 530 GPS Cycling Computer',
-    reviews: 15,
+
     price: '299.0',
     sale_price: 233,
     id: 1,
@@ -34,7 +34,7 @@ const shopData: Product[] = [
   },
   {
     name: 'Garmin Edge 530 GPS Cycling Computer',
-    reviews: 15,
+
     price: '299.0',
     sale_price: 233,
     id: 1,

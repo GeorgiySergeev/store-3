@@ -40,8 +40,6 @@ const SingleGridItem = ({ item }: { item: Product }) => {
     dispatch(
       addItemToWishlist({
         ...item,
-        sale_price: item.sale_price || '0',
-        ...item,
         status: 'available',
         quantity: 1,
       }),

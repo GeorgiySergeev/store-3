@@ -119,7 +119,7 @@ const ProductItem = ({ item }: { item: Product }) => {
           <Image src="/images/icons/icon-star.svg" alt="star icon" width={14} height={14} />
         </div>
 
-        <p className="text-custom-sm">({item.reviews})</p>
+        {/* <p className="text-custom-sm">({item.reviews})</p> */}
       </div>
 
       <h3

@@ -7,7 +7,6 @@ export type Product = {
   slug?: string;
   defaultImage?: string;
   describtion?: string;
-  reviews?: number;
   onAddToCart?: () => void;
   onAddToWishlist?: () => void;
   images?: [

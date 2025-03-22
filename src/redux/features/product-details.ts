@@ -9,7 +9,7 @@ const initialState = {
   value: {
     name: '',
     price: '',
-    sale_price: '',
+    sale_price: 0,
     images: [{ id: 0, src: '', alt: '' }], // Updated to match expected type
     id: 0,
     description: '',

@@ -28,7 +28,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
         ...item,
         price: item.price,
         name: item.name,
-        sale_price: item.sale_price,
+
         ...item,
         quantity: 1,
       }),
@@ -39,7 +39,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
     dispatch(
       addItemToWishlist({
         ...item,
-        sale_price: item.sale_price || '0',
+
         ...item,
         status: 'available',
         quantity: 1,

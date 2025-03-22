@@ -52,7 +52,7 @@ const SingleItem = ({ item }: { item: Product }) => {
               <Image src="/images/icons/icon-star.svg" alt="star icon" width={14} height={14} />
             </div>
 
-            <p className="text-custom-sm">({item.reviews})</p>
+            {/* <p className="text-custom-sm">({item.reviews})</p> */}
           </div>
 
           <h3 className="font-medium text-dark ease-out duration-200 hover:text-blue mb-1.5">
