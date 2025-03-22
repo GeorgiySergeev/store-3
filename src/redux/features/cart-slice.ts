@@ -9,7 +9,7 @@ type CartItem = {
   id: number;
   name: string;
   price: string;
-  sale_price: string;
+  sale_price?: number;
   quantity: number;
   images?: {};
 };
@@ -62,7 +62,7 @@ export const selectCartItems = (state: RootState) => state.cartReducer.items;
 
 export const selectTotalPrice = createSelector([selectCartItems], (items) => {
   return items.reduce((total, item) => {
-    return total + parseFloat(item.sale_price) * item.quantity;
+    return total * item.quantity;
   }, 0);
 });
 

@@ -8,7 +8,7 @@ type WishListItem = {
   id: number;
   name: string;
   price: string;
-  sale_price: string;
+  sale_price?: number;
   quantity: number;
   status: string;
   images?: {};

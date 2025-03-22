@@ -5,8 +5,9 @@ export type Product = {
   categories?: [];
   sale_price?: number;
   slug?: string;
-  defaultImage?: string = "/images/products/default.jpg";
+  defaultImage?: string;
   describtion?: string;
+  reviews?: number;
   onAddToCart?: () => void;
   onAddToWishlist?: () => void;
   images?: [
