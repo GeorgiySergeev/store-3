@@ -120,10 +120,10 @@ const ShopDetails = ({ product }) => {
                       </button>
 
                       <Image
-                        src={product.images?.[0]?.src || defaultImg}
+                        src={product.image || defaultImg}
                         alt="products-details"
-                        width={400}
-                        height={400}
+                        width={1200}
+                        height={1200}
                       />
                     </div>
                   </div>

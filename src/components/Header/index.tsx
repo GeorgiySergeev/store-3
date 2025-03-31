@@ -10,11 +10,17 @@ import { selectTotalPrice } from '@/redux/features/cart-slice';
 import { useCartModalContext } from '@/app/context/CartSidebarModalContext';
 import Image from 'next/image';
 
-const Header = () => {
+// import data from '../../helpers/fetchCategories';
+
+const Header: React.FC = (): JSX.Element => {
   const [searchQuery, setSearchQuery] = useState('');
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
   const { openCartModal } = useCartModalContext();
+
+  const [categories, setCategories] = useState([]);
+
+  // setCategories(cat)
 
   const product = useAppSelector((state) => state.cartReducer.items);
   const totalPrice = useSelector(selectTotalPrice);
