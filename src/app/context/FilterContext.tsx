@@ -6,7 +6,11 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 interface FilterContextType {
   isFiltered: boolean;
   selectedCategories: string[];
+  selectedSubcategories: string[]; // Add this
+  selectedThirdLevelCategories: string[];
   setSelectedCategories: (categories: string[]) => void;
+  setSelectedSubcategories: (subcategories: string[]) => void; // Add this
+  setSelectedThirdLevelCategories: (categories: string[]) => void;
   resetFilters: () => void;
 }
 
@@ -14,7 +18,11 @@ interface FilterContextType {
 const FilterContext = createContext<FilterContextType>({
   isFiltered: false,
   selectedCategories: [],
+  selectedSubcategories: [],
+  selectedThirdLevelCategories: [], // Add this missing property
   setSelectedCategories: () => {},
+  setSelectedSubcategories: () => {},
+  setSelectedThirdLevelCategories: () => {}, // Add this missing property
   resetFilters: () => {},
 });
 
@@ -22,22 +30,37 @@ const FilterContext = createContext<FilterContextType>({
 export const useFilter = () => useContext(FilterContext);
 
 // Provider component
+// Добавьте в интерфейс FilterContextType:
+interface FilterContextType {
+  isFiltered: boolean;
+  selectedCategories: string[];
+  selectedSubcategories: string[]; // Add this
+  selectedThirdLevelCategories: string[];
+  setSelectedCategories: (categories: string[]) => void;
+  setSelectedSubcategories: (subcategories: string[]) => void; // Add this
+  setSelectedThirdLevelCategories: (categories: string[]) => void;
+  resetFilters: () => void;
+}
+
+// В FilterProvider добавьте:
 export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const [isFiltered, setIsFiltered] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedSubcategories, setSelectedSubcategories] = useState<string[]>([]); // Add this
+  const [selectedThirdLevelCategories, setSelectedThirdLevelCategories] = useState<string[]>([]);
 
-  // Update isFiltered state when any filter changes
   useEffect(() => {
-    if (selectedCategories.length > 0) {
-      setIsFiltered(true);
-    } else {
-      setIsFiltered(false);
-    }
-  }, [selectedCategories]);
+    setIsFiltered(
+      selectedCategories.length > 0 ||
+        selectedSubcategories.length > 0 ||
+        selectedThirdLevelCategories.length > 0,
+    );
+  }, [selectedCategories, selectedSubcategories, selectedThirdLevelCategories]);
 
-  // Reset all filters
   const resetFilters = () => {
     setSelectedCategories([]);
+    setSelectedSubcategories([]);
+    setSelectedThirdLevelCategories([]);
     setIsFiltered(false);
   };
 
@@ -46,7 +69,11 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         isFiltered,
         selectedCategories,
+        selectedSubcategories, // Add this
         setSelectedCategories,
+        setSelectedSubcategories, // Add this
+        selectedThirdLevelCategories,
+        setSelectedThirdLevelCategories,
         resetFilters,
       }}>
       {children}

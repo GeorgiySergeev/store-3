@@ -29,7 +29,6 @@ import {
 } from '@/components/ui/pagination';
 import { data } from 'autoprefixer';
 
-import defaultCategories from '../../constants/categories';
 import {
   getAllCategoryIds,
   getChildrenCategories,
@@ -40,6 +39,11 @@ import { useFilter, FilterProvider } from '../../app/context/FilterContext';
 import SubcategoriesDropdoun from './SubcategoriesDropdown';
 
 // Wrap the main component with the context provider
+// Добавьте импорт нового компонента
+import ThirdLevelCategoriesDropdown from './ThirdLevelCategoriesDropdown';
+import defaultCategories from '../../constants/categories';
+
+// В компоненте ShopWithSidebar обновите:
 const ShopWithSidebar = () => {
   // const cookieStore = cookies();
   const supabase = createClient();
@@ -55,7 +59,8 @@ const ShopWithSidebar = () => {
   const [totalProducts, setTotalProducts] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [showingItems, setShowingItems] = useState('12');
-  const { resetFilters, selectedCategories } = useFilter();
+  const { resetFilters, selectedCategories, selectedSubcategories, selectedThirdLevelCategories } =
+    useFilter();
 
   const [childrenCategories, setChildrenCategories] = useState(selectedCategories); // State for children categories
   const [parentCategoryId, setParentCategoryId] = useState(null); // State for parent category ID
@@ -83,35 +88,81 @@ const ShopWithSidebar = () => {
   // Получаем общее количество товаров
 
   useEffect(() => {
+    console.log(selectedSubcategories);
     const fetchProducts = async () => {
       try {
-        const { count, error: countError } = await supabase
-          .from('items')
-          .select('*', { count: 'exact', head: true });
+        // Импортируем функцию для получения всех вложенных категорий
+        const { getAllDescendantCategoryIds } = require('../../constants/categories');
 
-        if (countError) {
-          throw countError;
+        // Создаем базовый запрос для count с теми же фильтрами
+        let countQuery = supabase.from('items').select('*', { count: 'exact', head: true });
+
+        // Базовый запрос для данных
+        let dataQuery = supabase.from('items').select('*');
+
+        // Собираем условия фильтрации
+        const filters = [];
+
+        // Условия для категорий - получаем все вложенные категории
+        if (selectedCategories.length > 0) {
+          // Получаем все ID категорий, включая вложенные подкатегории всех уровней
+          const allCategoryIds = [];
+
+          // Для каждой выбранной категории получаем все её дочерние категории
+          for (const categoryId of selectedCategories) {
+            const descendantIds = getAllDescendantCategoryIds(categoryId);
+            allCategoryIds.push(...descendantIds);
+          }
+
+          // Удаляем дубликаты
+          const uniqueCategoryIds = Array.from(new Set(allCategoryIds));
+
+          if (uniqueCategoryIds.length > 0) {
+            // Товары в выбранных категориях ИЛИ их дочерних подкатегориях
+            filters.push(`categoryId.in.(${uniqueCategoryIds.join(',')})`);
+          }
         }
 
-        setTotalProducts(count);
+        // Условия для подкатегорий
+        if (selectedSubcategories.length > 0) {
+          // Товары напрямую в выбранных подкатегориях
+          filters.push(`categoryId.in.(${selectedSubcategories.join(',')})`);
+        }
 
-        let query = supabase.from('items').select('*');
+        // Применяем фильтры только если есть условия
+        if (filters.length > 0) {
+          const orString = filters.join(',');
+          countQuery = countQuery.or(orString);
+          dataQuery = dataQuery.or(orString);
+        }
 
-        if (selectedCategories.length > 0) {
-          query = query.in('categoryId', selectedCategories);
-          query = query.or(
-            `categoryId.in.(${selectedCategories.join(
-              ',',
-            )}),_parentId.in.(${selectedCategories.join(',')})`,
+        // Отдельное условие для категорий третьего уровня
+        if (selectedThirdLevelCategories.length > 0) {
+          console.log('Using third level categories for filtering:', selectedThirdLevelCategories);
+
+          // Применяем фильтр для категорий третьего уровня отдельно
+          countQuery = countQuery.or(`categoryId.in.(${selectedThirdLevelCategories.join(',')})`);
+          dataQuery = dataQuery.or(`categoryId.in.(${selectedThirdLevelCategories.join(',')})`);
+
+          // Для отладки выведем сформированный запрос
+          console.log(
+            'Third level filter query:',
+            `categoryId.in.(${selectedThirdLevelCategories.join(',')})`,
           );
         }
 
-        query = query.range((currentPage - 1) * 12, currentPage * 12 - 1);
+        // Выполняем запросы
+        const { count, error: countError } = await countQuery;
+        if (countError) throw countError;
+        setTotalProducts(count || 0);
 
-        const { data: items, error } = await query;
+        // Пагинация
+        const { data: items, error } = await dataQuery.range(
+          (currentPage - 1) * 12,
+          currentPage * 12 - 1,
+        );
 
         if (error) throw error;
-
         setProducts(items || []);
       } catch (error) {
         console.error('Error fetching products:', error.message);
@@ -122,7 +173,13 @@ const ShopWithSidebar = () => {
     };
 
     fetchProducts();
-  }, [supabase, currentPage, selectedCategories]); // Removed childrenCategories and subCategories from dependencies
+  }, [
+    supabase,
+    currentPage,
+    selectedCategories,
+    selectedSubcategories,
+    selectedThirdLevelCategories,
+  ]); // Removed childrenCategories and subCategories from dependencies
 
   // const handledCategories = categoriesHandler(categories);
   // console.log('Categories after handling:', handledCategories);
@@ -230,6 +287,7 @@ const ShopWithSidebar = () => {
 
                   {/* <!-- gender box --> */}
                   <SubcategoriesDropdoun />
+                  <ThirdLevelCategoriesDropdown categories={defaultCategories} />
 
                   {/* <!-- size box --> */}
 

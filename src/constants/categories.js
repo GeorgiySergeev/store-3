@@ -184,46 +184,244 @@ const categories = [
           _id: '0f894460-4847-11ec-857f-0050569e3a4b',
           __text: 'Вилки та амортизатори',
           _parentId: '9f86a15a-46e8-11ec-857d-0050569e3a4b',
+          c2: [
+            {
+              _id: '63546cdd-4848-11ec-857f-0050569e3a4b',
+              _parentId: '0f894460-4847-11ec-857f-0050569e3a4b',
+              __text: 'Амортизаційні вилки',
+            },
+            {
+              _id: '9d62d29c-73b7-11ec-85ef-0050569ee4d0',
+              _parentId: '0f894460-4847-11ec-857f-0050569e3a4b',
+              __text: 'Жорсткі вилки (рігідні)',
+            },
+          ],
         },
         {
           _id: '53215c3b-4847-11ec-857f-0050569e3a4b',
           __text: 'Колеса та колісні частини',
           _parentId: '9f86a15a-46e8-11ec-857d-0050569e3a4b',
+          c3: [
+            {
+              _id: '87c58377-4848-11ec-857f-0050569e3a4b',
+              _parentId: '53215c3b-4847-11ec-857f-0050569e3a4b',
+              __text: 'Втулки',
+            },
+            {
+              _id: '92303594-4848-11ec-857f-0050569e3a4b',
+              _parentId: '53215c3b-4847-11ec-857f-0050569e3a4b',
+              __text: 'Колеса',
+            },
+            {
+              _id: 'a198ee05-4848-11ec-857f-0050569e3a4b',
+              _parentId: '53215c3b-4847-11ec-857f-0050569e3a4b',
+              __text: 'Ободи',
+            },
+            {
+              _id: 'a9c6691a-4848-11ec-857f-0050569e3a4b',
+              _parentId: '53215c3b-4847-11ec-857f-0050569e3a4b',
+              __text: 'Спиці',
+            },
+          ],
         },
         {
           _id: '63fc6ae4-4847-11ec-857f-0050569e3a4b',
           __text: 'Педалі',
           _parentId: '9f86a15a-46e8-11ec-857d-0050569e3a4b',
+          c2: [
+            {
+              _id: '2159d899-7495-11ec-85f0-0050569ee4d0',
+              _parentId: '63fc6ae4-4847-11ec-857f-0050569e3a4b',
+              __text: 'Контактні педалі',
+            },
+            {
+              _id: 'cf4a93b4-4848-11ec-857f-0050569e3a4b',
+              _parentId: '63fc6ae4-4847-11ec-857f-0050569e3a4b',
+              __text: 'Педалі платформи',
+            },
+          ],
         },
         {
           _id: '7fe32d60-4847-11ec-857f-0050569e3a4b',
           __text: 'Покришки та камери',
           _parentId: '9f86a15a-46e8-11ec-857d-0050569e3a4b',
+          c2: [
+            {
+              _id: 'e30bf217-4848-11ec-857f-0050569e3a4b',
+              _parentId: '7fe32d60-4847-11ec-857f-0050569e3a4b',
+              __text: 'Камери',
+            },
+            {
+              _id: '01bc3424-4849-11ec-857f-0050569e3a4b',
+              _parentId: '7fe32d60-4847-11ec-857f-0050569e3a4b',
+              __text: 'Камери мото',
+            },
+            {
+              _id: 'edc7a778-4848-11ec-857f-0050569e3a4b',
+              _parentId: '7fe32d60-4847-11ec-857f-0050569e3a4b',
+              __text: 'Покришки',
+            },
+            {
+              _id: 'f7ce2e0b-4848-11ec-857f-0050569e3a4b',
+              _parentId: '7fe32d60-4847-11ec-857f-0050569e3a4b',
+              __text: 'Покришки мото',
+            },
+          ],
         },
         {
           _id: 'a97ecd30-4847-11ec-857f-0050569e3a4b',
           __text: 'Рульове управління',
           _parentId: '9f86a15a-46e8-11ec-857d-0050569e3a4b',
+          c2: [
+            {
+              _id: '1d38144f-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'a97ecd30-4847-11ec-857f-0050569e3a4b',
+              __text: 'Виноси',
+            },
+            {
+              _id: '25caf096-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'a97ecd30-4847-11ec-857f-0050569e3a4b',
+              __text: 'Ручки керма',
+            },
+            {
+              _id: '2dc17c7b-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'a97ecd30-4847-11ec-857f-0050569e3a4b',
+              __text: 'Рульові колонки',
+            },
+            {
+              _id: '38b3ea55-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'a97ecd30-4847-11ec-857f-0050569e3a4b',
+              __text: 'Керма',
+            },
+          ],
         },
         {
           _id: 'd967282b-4847-11ec-857f-0050569e3a4b',
           __text: 'Сідла і підсидільні штирі',
           _parentId: '9f86a15a-46e8-11ec-857d-0050569e3a4b',
+          c2: [
+            {
+              _id: '7fd58d54-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'd967282b-4847-11ec-857f-0050569e3a4b',
+              __text: 'Підсидільні затискачі',
+            },
+            {
+              _id: '89a9d812-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'd967282b-4847-11ec-857f-0050569e3a4b',
+              __text: 'Підсидільні штирі',
+            },
+            {
+              _id: '9810f5d7-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'd967282b-4847-11ec-857f-0050569e3a4b',
+              __text: 'Сідла',
+            },
+          ],
         },
         {
           _id: 'effb5b5a-4847-11ec-857f-0050569e3a4b',
           __text: 'Гальмівна система',
           _parentId: '9f86a15a-46e8-11ec-857d-0050569e3a4b',
+          c2: [
+            {
+              _id: 'b565af21-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'effb5b5a-4847-11ec-857f-0050569e3a4b',
+              __text: 'Ротори',
+            },
+            {
+              _id: 'd1ff3d61-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'effb5b5a-4847-11ec-857f-0050569e3a4b',
+              __text: 'Гальма V-brake',
+            },
+            {
+              _id: 'dbecce12-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'effb5b5a-4847-11ec-857f-0050569e3a4b',
+              __text: 'Гальма дисковi',
+            },
+            {
+              _id: 'e5c286f3-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'effb5b5a-4847-11ec-857f-0050569e3a4b',
+              __text: 'Гальмівні колодки',
+            },
+            {
+              _id: 'efccb3e0-4849-11ec-857f-0050569e3a4b',
+              _parentId: 'effb5b5a-4847-11ec-857f-0050569e3a4b',
+              __text: 'Гальмівні ручки',
+            },
+          ],
         },
         {
           _id: '077ba90c-46fe-11ec-857d-0050569e3a4b',
           __text: 'Трансмісія',
           _parentId: '9f86a15a-46e8-11ec-857d-0050569e3a4b',
+          c2: [
+            {
+              _id: 'ef96971a-484a-11ec-857f-0050569e3a4b',
+              _parentId: '077ba90c-46fe-11ec-857d-0050569e3a4b',
+              __text: 'Тримач перемикача (сережка, півень)',
+            },
+            {
+              _id: '10630b02-484a-11ec-857f-0050569e3a4b',
+              _parentId: '077ba90c-46fe-11ec-857d-0050569e3a4b',
+              __text: 'Зiрки',
+            },
+            {
+              _id: '26f0ba79-484a-11ec-857f-0050569e3a4b',
+              _parentId: '077ba90c-46fe-11ec-857d-0050569e3a4b',
+              __text: 'Каретки',
+            },
+            {
+              _id: '1b9e64a2-484a-11ec-857f-0050569e3a4b',
+              _parentId: '077ba90c-46fe-11ec-857d-0050569e3a4b',
+              __text: 'Касети/Тріскачки',
+            },
+            {
+              _id: '8089f28f-a337-11ed-873b-0050569e3a4b',
+              _parentId: '077ba90c-46fe-11ec-857d-0050569e3a4b',
+              __text: 'Набір трансмісії',
+            },
+            {
+              _id: '0801ea9c-484b-11ec-857f-0050569e3a4b',
+              _parentId: '077ba90c-46fe-11ec-857d-0050569e3a4b',
+              __text: 'Перемикачі задні',
+            },
+            {
+              _id: '108866b1-484b-11ec-857f-0050569e3a4b',
+              _parentId: '077ba90c-46fe-11ec-857d-0050569e3a4b',
+              __text: 'Перемикачі передні',
+            },
+            {
+              _id: '26f0ba7a-484a-11ec-857f-0050569e3a4b',
+              _parentId: '077ba90c-46fe-11ec-857d-0050569e3a4b',
+              __text: 'Важелі перемикання',
+            },
+            {
+              _id: '19c7c0a7-484b-11ec-857f-0050569e3a4b',
+              _parentId: '077ba90c-46fe-11ec-857d-0050569e3a4b',
+              __text: 'Ланцюги',
+            },
+            {
+              _id: '3681187b-484b-11ec-857f-0050569e3a4b',
+              _parentId: '077ba90c-46fe-11ec-857d-0050569e3a4b',
+              __text: 'Шатуни',
+            },
+          ],
         },
         {
           _id: '15ed0967-4848-11ec-857f-0050569e3a4b',
           __text: 'Троси та сорочки',
           _parentId: '9f86a15a-46e8-11ec-857d-0050569e3a4b',
+          c2: [
+            {
+              _id: '59e3e1be-484b-11ec-857f-0050569e3a4b',
+              _parentId: '15ed0967-4848-11ec-857f-0050569e3a4b',
+              __text: 'Боудени (обплетення троса)',
+            },
+            {
+              _id: '63ff2df3-484b-11ec-857f-0050569e3a4b',
+              _parentId: '15ed0967-4848-11ec-857f-0050569e3a4b',
+              __text: 'Троса гальма і перемикання',
+            },
+          ],
         },
       ],
     ],
@@ -353,18 +551,58 @@ const getChildrenCategories = (parentIds) => {
   return allChildren;
 };
 
-// Получение всех товаров для категории (включая подкатегории)
-const getAllCategoryIds = (categoryId) => {
+// Получение всех вложенных категорий (включая все уровни вложенности)
+const getAllDescendantCategoryIds = (categoryId) => {
   const result = [categoryId];
-  const children = getChildrenCategories(categoryId);
+  const processedIds = new Set([categoryId]);
 
-  if (children && children.length > 0) {
-    children.forEach((child) => {
-      result.push(child._id);
-    });
-  }
+  // Рекурсивная функция для обхода всех уровней вложенности
+  const processCategory = (catId) => {
+    const category = getCategoryById(catId);
+    if (!category) return;
 
+    // Обработка прямых потомков
+    const children = getChildrenCategories(catId);
+
+    if (children && children.length > 0) {
+      children.forEach((child) => {
+        if (!processedIds.has(child._id)) {
+          result.push(child._id);
+          processedIds.add(child._id);
+
+          // Проверяем наличие вложенных категорий (c2, c3 и т.д.)
+          if (child.c2) {
+            child.c2.forEach((c2Item) => {
+              if (!processedIds.has(c2Item._id)) {
+                result.push(c2Item._id);
+                processedIds.add(c2Item._id);
+              }
+            });
+          }
+
+          if (child.c3) {
+            child.c3.forEach((c3Item) => {
+              if (!processedIds.has(c3Item._id)) {
+                result.push(c3Item._id);
+                processedIds.add(c3Item._id);
+              }
+            });
+          }
+
+          // Рекурсивно обрабатываем потомков
+          processCategory(child._id);
+        }
+      });
+    }
+  };
+
+  processCategory(categoryId);
   return result;
+};
+
+// Обновляем функцию getAllCategoryIds для использования новой функции
+const getAllCategoryIds = (categoryId) => {
+  return getAllDescendantCategoryIds(categoryId);
 };
 
 // Проверка, является ли категория родительской
@@ -387,6 +625,7 @@ export {
   getParentCategories,
   getChildrenCategories,
   getAllCategoryIds,
+  getAllDescendantCategoryIds, // Экспортируем новую функцию
   isParentCategory,
   getParentForCategory,
 };

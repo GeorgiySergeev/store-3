@@ -2,17 +2,44 @@
 import React, { useState, useEffect } from 'react';
 import { useFilter } from '@/app/context/FilterContext';
 
-import { getChildrenCategories } from '../../constants/categories';
+// Функция для получения категорий третьего уровня (c2)
+const getThirdLevelCategories = (categories, selectedSubcategories) => {
+  let thirdLevelCategories = [];
 
-const SubcategorieItem = ({ category }) => {
-  const { selectedSubcategories, setSelectedSubcategories } = useFilter();
-  const isSelected = selectedSubcategories.includes(category._id);
+  // Проходим по всем категориям
+  categories.forEach((category) => {
+    if (category.children) {
+      // Проверяем, является ли children массивом массивов
+      const childrenArray = Array.isArray(category.children[0])
+        ? category.children[0]
+        : category.children;
+
+      childrenArray.forEach((subCategory) => {
+        // Проверяем, выбрана ли эта подкатегория
+        if (selectedSubcategories.includes(subCategory._id) && subCategory.c2) {
+          // Добавляем категории третьего уровня
+          thirdLevelCategories = [...thirdLevelCategories, ...subCategory.c2];
+        }
+      });
+    }
+  });
+
+  return thirdLevelCategories;
+};
+
+const ThirdLevelCategoryItem = ({ category }) => {
+  const { selectedThirdLevelCategories, setSelectedThirdLevelCategories } = useFilter();
+  const isSelected = selectedThirdLevelCategories.includes(category._id);
 
   const handleSelect = () => {
+    console.log('Selected third level category:', category); // Debug log
+
     if (isSelected) {
-      setSelectedSubcategories(selectedSubcategories.filter((id) => id !== category._id));
+      setSelectedThirdLevelCategories(
+        selectedThirdLevelCategories.filter((id) => id !== category._id),
+      );
     } else {
-      setSelectedSubcategories([...selectedSubcategories, category._id]);
+      setSelectedThirdLevelCategories([...selectedThirdLevelCategories, category._id]);
     }
   };
 
@@ -55,15 +82,15 @@ const SubcategorieItem = ({ category }) => {
   );
 };
 
-const SubcategoriesDropdoun = () => {
-  const { selectedCategories, selectedSubcategories, setSelectedSubcategories } = useFilter();
-  const subcategories = getChildrenCategories(selectedCategories);
+const ThirdLevelCategoriesDropdown = ({ categories }) => {
+  const { selectedSubcategories, selectedThirdLevelCategories } = useFilter();
+  const thirdLevelCategories = getThirdLevelCategories(categories, selectedSubcategories);
   const [toggleDropdown, setToggleDropdown] = useState(true);
 
-  // Очищаем выбранные подкатегории при изменении категорий
-  useEffect(() => {
-    setSelectedSubcategories([]);
-  }, [selectedCategories, setSelectedSubcategories]);
+  // Скрываем компонент, если нет категорий третьего уровня
+  if (thirdLevelCategories.length === 0) {
+    return null;
+  }
 
   return (
     <div className="bg-white shadow-1 rounded-lg">
@@ -72,10 +99,10 @@ const SubcategoriesDropdoun = () => {
         className={`cursor-pointer flex items-center justify-between py-3 pl-6 pr-5.5 ${
           toggleDropdown && 'shadow-filter'
         }`}>
-        <p className="text-dark">Підкатегорія</p>
+        <p className="text-dark">Додаткові категорії</p>
         <button
           onClick={() => setToggleDropdown(!toggleDropdown)}
-          aria-label="button for gender dropdown"
+          aria-label="button for third level dropdown"
           className={`text-dark ease-out duration-200 ${toggleDropdown && 'rotate-180'}`}>
           <svg
             className="fill-current"
@@ -94,14 +121,13 @@ const SubcategoriesDropdoun = () => {
         </button>
       </div>
 
-      {/* <!-- dropdown menu --> */}
       <div className={`flex-col gap-3 py-6 pl-6 pr-5.5 ${toggleDropdown ? 'flex' : 'hidden'}`}>
-        {subcategories.map((item, key) => (
-          <SubcategorieItem key={key} category={item} />
+        {thirdLevelCategories.map((item, key) => (
+          <ThirdLevelCategoryItem key={key} category={item} />
         ))}
       </div>
     </div>
   );
 };
 
-export default SubcategoriesDropdoun;
+export default ThirdLevelCategoriesDropdown;
