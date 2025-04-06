@@ -3,6 +3,7 @@
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from '@/redux/store';
+import { BreadcrumbProvider } from '@/contexts/BreadcrumbContext';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            {children}
+            <BreadcrumbProvider>{children}</BreadcrumbProvider>
           </PersistGate>
         </Provider>
       </body>

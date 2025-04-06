@@ -231,7 +231,7 @@ const ShopWithSidebar = () => {
 
   return (
     <>
-      <Breadcrumb title={'Категорії'} pages={['магазин']} />
+      
       <section className="overflow-hidden relative pb-10 pt-5 lg:pt-20 xl:pt-18 bg-[#f3f4f6]">
         <CategoryList />
         {watchAllCategories && (

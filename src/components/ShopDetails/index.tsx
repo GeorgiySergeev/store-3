@@ -100,8 +100,6 @@ const ShopDetails = ({ product }) => {
 
   return (
     <>
-      <Breadcrumb title={'Shop Details'} pages={['shop details']} />
-
       {product.name === '' ? (
         <Skeleton />
       ) : (
