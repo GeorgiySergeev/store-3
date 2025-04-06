@@ -60,7 +60,7 @@ const Navigation = ({}) => {
   const [nav, setNav] = useState(categories);
   const router = useRouter();
   const dispatch = useDispatch();
-  console.log(nav);
+  // console.log(nav);
 
   const onClickHandler = (id: string, path: string) => {
     dispatch(setSelectedCategory(id));

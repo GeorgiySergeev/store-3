@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { useBreadcrumb } from '@/contexts/BreadcrumbContext';
+// Update this import
+import { useBreadcrumb } from '@/app/context/BreadcrumbContext';
 
 export const useBreadcrumbUpdate = (title: string) => {
   const { updateBreadcrumb } = useBreadcrumb();

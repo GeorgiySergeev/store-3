@@ -194,7 +194,6 @@ const CategoryList = ({ items }) => {
   });
   return (
     <>
-      <Breadcrumb title={'Всі товари'} pages={['магазин']} />
       <section className="overflow-hidden relative pb-10 pt-5 lg:pt-20 xl:pt-18 bg-[#f3f4f6]">
         <div className="container w-full mx-auto px-4 sm:px-8 xl:px-0">
           <div className="flex gap-8 justify-between">

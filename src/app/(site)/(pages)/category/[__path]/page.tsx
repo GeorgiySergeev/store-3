@@ -41,12 +41,12 @@ const CategoryPage = () => {
   const __path = params.__path;
 
   // For debugging
-  console.log('Category path:', __path);
-  console.log('Redux store:', store.getState());
   const { categoryIdReduser } = store.getState();
-  console.log('Redux categoryIdReduser:', categoryIdReduser);
   const { categoryId } = categoryIdReduser;
-  console.log('Redux categoryId:', categoryId);
+  // console.log('Category path:', __path);
+  // console.log('Redux store:', store.getState());
+  // console.log('Redux categoryIdReduser:', categoryIdReduser);
+  // console.log('Redux categoryId:', categoryId);
 
   const [items, setItems] = useState([]);
 
@@ -70,7 +70,7 @@ const CategoryPage = () => {
       }
 
       setCategory(categoryData);
-      console.log('Category data:', categoryData);
+      // console.log('Category data:', categoryData);
 
       // Function to recursively collect all subcategory IDs
       const getAllSubcategoryIds = async (parentId) => {
@@ -88,7 +88,7 @@ const CategoryPage = () => {
           return [];
         }
         setSubcategories(subcats);
-        console.log('Subcategories:', subcats);
+        // console.log('Subcategories:', subcats);
 
         // Recursively get IDs of deeper level subcategories
         // Get IDs of current level subcategories
@@ -103,7 +103,7 @@ const CategoryPage = () => {
 
       // Get all subcategory IDs
       const allSubcategoryIds = await getAllSubcategoryIds(categoryId);
-      console.log('All subcategory IDs:', allSubcategoryIds);
+      // console.log('All subcategory IDs:', allSubcategoryIds);
 
       // Set subcategories for the first level (for display purposes)
       const { data: directSubcategories, error: directSubcatsError } = await supabase
@@ -115,7 +115,7 @@ const CategoryPage = () => {
         console.error('Error fetching direct subcategories:', directSubcatsError);
       } else {
         setSubcategories(directSubcategories || []);
-        console.log('Direct subcategories:', directSubcategories);
+        // console.log('Direct subcategories:', directSubcategories);
       }
 
       // Create a filter condition for all categories (current + all subcategories)
@@ -131,7 +131,7 @@ const CategoryPage = () => {
         console.error('Error counting items:', countError);
       } else {
         setTotalProducts(count || 0);
-        console.log('Total items count across all categories:', count);
+        // console.log('Total items count across all categories:', count);
       }
 
       // Calculate pagination range
@@ -149,7 +149,7 @@ const CategoryPage = () => {
       if (itemsError) {
         console.error('Error fetching items:', itemsError);
       } else {
-        console.log('Items from all categories:', itemsData);
+        // console.log('Items from all categories:', itemsData);
         setItems(itemsData || []);
       }
     };

@@ -1,7 +1,4 @@
 'use client';
-import { useState, useEffect } from 'react';
-import '../css/euclid-circular-a-font.css';
-import '../css/style.css';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
@@ -15,43 +12,26 @@ import { FilterProvider } from '../context/FilterContext';
 import PreviewSliderModal from '@/components/Common/PreviewSlider';
 
 import ScrollToTop from '@/components/Common/ScrollToTop';
-import PreLoader from '@/components/Common/PreLoader';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
-
+export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <body>
-        {loading ? (
-          <PreLoader />
-        ) : (
-          <>
-            <ReduxProvider>
-              <CartModalProvider>
-                <ModalProvider>
-                  <FilterProvider>
-                    <PreviewSliderProvider>
-                      <Header />
-                      {children}
-                      <Footer />
+    <ReduxProvider>
+      <CartModalProvider>
+        <ModalProvider>
+          <FilterProvider>
+            <PreviewSliderProvider>
+              <Header />
+              {children}
+              <Footer />
 
-                      <QuickViewModal />
-                      <CartSidebarModal />
-                      <PreviewSliderModal />
-                      <ScrollToTop />
-                    </PreviewSliderProvider>
-                  </FilterProvider>
-                </ModalProvider>
-              </CartModalProvider>
-            </ReduxProvider>
-          </>
-        )}
-      </body>
-    </html>
+              <QuickViewModal />
+              <CartSidebarModal />
+              <PreviewSliderModal />
+              <ScrollToTop />
+            </PreviewSliderProvider>
+          </FilterProvider>
+        </ModalProvider>
+      </CartModalProvider>
+    </ReduxProvider>
   );
 }

@@ -1,17 +1,16 @@
-"use client";
-import React from "react";
-import Breadcrumb from "../Common/Breadcrumb";
-import Login from "./Login";
-import Shipping from "./Shipping";
-import ShippingMethod from "./ShippingMethod";
-import PaymentMethod from "./PaymentMethod";
-import Coupon from "./Coupon";
-import Billing from "./Billing";
+'use client';
+import React from 'react';
+import Breadcrumb from '../Common/Breadcrumb';
+import Login from './Login';
+import Shipping from './Shipping';
+import ShippingMethod from './ShippingMethod';
+import PaymentMethod from './PaymentMethod';
+import Coupon from './Coupon';
+import Billing from './Billing';
 
 const Checkout = () => {
   return (
     <>
-      <Breadcrumb title={"Checkout"} pages={["checkout"]} />
       <section className="overflow-hidden py-20 bg-gray-2">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
           <form>
@@ -39,8 +38,7 @@ const Checkout = () => {
                       id="notes"
                       rows={5}
                       placeholder="Notes about your order, e.g. speacial notes for delivery."
-                      className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full p-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-                    ></textarea>
+                      className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full p-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"></textarea>
                   </div>
                 </div>
               </div>
@@ -50,9 +48,7 @@ const Checkout = () => {
                 {/* <!-- order list box --> */}
                 <div className="bg-white shadow-1 rounded-[10px]">
                   <div className="border-b border-gray-3 py-5 px-4 sm:px-8.5">
-                    <h3 className="font-medium text-xl text-dark">
-                      Your Order
-                    </h3>
+                    <h3 className="font-medium text-xl text-dark">Your Order</h3>
                   </div>
 
                   <div className="pt-2.5 pb-8.5 px-4 sm:px-8.5">
@@ -62,9 +58,7 @@ const Checkout = () => {
                         <h4 className="font-medium text-dark">Product</h4>
                       </div>
                       <div>
-                        <h4 className="font-medium text-dark text-right">
-                          Subtotal
-                        </h4>
+                        <h4 className="font-medium text-dark text-right">Subtotal</h4>
                       </div>
                     </div>
 
@@ -114,9 +108,7 @@ const Checkout = () => {
                         <p className="font-medium text-lg text-dark">Total</p>
                       </div>
                       <div>
-                        <p className="font-medium text-lg text-dark text-right">
-                          $1072.00
-                        </p>
+                        <p className="font-medium text-lg text-dark text-right">$1072.00</p>
                       </div>
                     </div>
                   </div>
@@ -134,8 +126,7 @@ const Checkout = () => {
                 {/* <!-- checkout button --> */}
                 <button
                   type="submit"
-                  className="w-full flex justify-center font-medium text-white bg-blue py-3 px-6 rounded-md ease-out duration-200 hover:bg-blue-dark mt-7.5"
-                >
+                  className="w-full flex justify-center font-medium text-white bg-blue py-3 px-6 rounded-md ease-out duration-200 hover:bg-blue-dark mt-7.5">
                   Process to Checkout
                 </button>
               </div>

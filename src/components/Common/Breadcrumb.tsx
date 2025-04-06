@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
-import { useBreadcrumb } from '@/contexts/BreadcrumbContext';
+import { useBreadcrumb } from '@/app/context/BreadcrumbContext';
 import { usePathname } from 'next/navigation';
 
 const Breadcrumb = ({ title }: { title?: string }) => {
