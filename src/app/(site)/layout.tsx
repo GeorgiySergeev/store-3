@@ -38,17 +38,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <PreviewSliderProvider>
                       <Header />
                       {children}
+                      <Footer />
 
                       <QuickViewModal />
                       <CartSidebarModal />
                       <PreviewSliderModal />
+                      <ScrollToTop />
                     </PreviewSliderProvider>
                   </FilterProvider>
                 </ModalProvider>
               </CartModalProvider>
             </ReduxProvider>
-            <ScrollToTop />
-            <Footer />
           </>
         )}
       </body>

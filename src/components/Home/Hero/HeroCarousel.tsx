@@ -56,7 +56,7 @@ const HeroCarousal = () => {
               <h3 className="text-heading-4">Швидко.Екологічно.Економічно.</h3>
 
               <Link
-                href={`/shop`}
+                href={`/category`}
                 className="inline-flex font-medium text-white text-custom-sm rounded-md bg-dark py-3 px-9 ease-out duration-200 hover:bg-blue mt-10">
                 <button>До магазину</button>
               </Link>
@@ -97,7 +97,7 @@ const HeroCarousal = () => {
               <h3 className="text-heading-4">Комфорт та стиль в одному ровері.</h3>
 
               <Link
-                href={`/shop`}
+                href={`/category`}
                 className="inline-flex font-medium text-white text-custom-sm rounded-md bg-dark py-3 px-9 ease-out duration-200 hover:bg-blue mt-10">
                 До магазину
               </Link>
@@ -138,7 +138,7 @@ const HeroCarousal = () => {
               <h3 className="text-heading-4">Технологічні. Сучасні. Економічні.</h3>
 
               <Link
-                href={`/shop`}
+                href={`/category`}
                 className="inline-flex font-medium text-white text-custom-sm rounded-md bg-dark py-3 px-9 ease-out duration-200 hover:bg-blue mt-10">
                 До магазину
               </Link>
@@ -179,7 +179,7 @@ const HeroCarousal = () => {
               <h3 className="text-heading-4">Веселі покатушки - яскраві спогади!</h3>
 
               <Link
-                href={`/shop`}
+                href={`/category`}
                 className="inline-flex font-medium text-white text-custom-sm rounded-md bg-dark py-3 px-9 ease-out duration-200 hover:bg-blue mt-10">
                 До магазину
               </Link>
