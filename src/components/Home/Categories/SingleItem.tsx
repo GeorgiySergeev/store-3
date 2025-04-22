@@ -9,7 +9,7 @@ const SingleItem = ({ item }: { item: Category }) => {
         <Image
           src={item.img}
           alt="Category"
-          className="w-full h-full rounded-full "
+          className="w-full h-full  bg-white "
           width={60}
           height={60}
         />

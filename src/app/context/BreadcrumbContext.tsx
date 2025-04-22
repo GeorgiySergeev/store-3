@@ -22,6 +22,7 @@ export const BreadcrumbProvider = ({ children }: { children: React.ReactNode }) 
     { label: 'Головна', path: '/' },
   ]);
   const pathname = usePathname();
+  console.log('pathname', pathname);
 
   // Обновляем хлебные крошки при изменении пути
   useEffect(() => {

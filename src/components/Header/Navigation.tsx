@@ -15,7 +15,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from '@/components/ui/navigation-menu';
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/utils';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { setSelectedCategory } from '@/redux/features/categoryId-slice';

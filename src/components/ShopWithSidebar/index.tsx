@@ -4,7 +4,7 @@ import { useFilteredProducts } from '../../utils/filterUtils';
 import { createClient } from '../../utils/supabase/client';
 // import { cookies } from 'next/headers';
 import getAllProducts from '../../api/getAllProducts';
-import categoriesHandler from '../../helpers/categoriesHandler';
+import categoriesHandler from '../../utils/categoriesHandler';
 // import supabase from '../../api/supabaseClient';
 
 import Breadcrumb from '../Common/Breadcrumb';
@@ -231,7 +231,6 @@ const ShopWithSidebar = () => {
 
   return (
     <>
-      
       <section className="overflow-hidden relative pb-10 pt-5 lg:pt-20 xl:pt-18 bg-[#f3f4f6]">
         <CategoryList />
         {watchAllCategories && (

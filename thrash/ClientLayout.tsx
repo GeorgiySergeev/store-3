@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from '@/redux/store';
-import { BreadcrumbProvider } from './context/BreadcrumbContext';
+import { BreadcrumbProvider } from '../src/app/context/BreadcrumbContext';
 import PreLoader from '@/components/Common/PreLoader';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
